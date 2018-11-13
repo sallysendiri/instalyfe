@@ -1,6 +1,6 @@
 <?php
 require('../func.php');
-require('../assik.php');
+require('../ass.php');
 error_reporting(0);
 set_time_limit(0);
 date_default_timezone_set('Asia/Jakarta');
