@@ -1,6 +1,6 @@
 <?php
-require('../funct.php');
-require('../ampas.php');
+required('../funct.php');
+required('../ampas.php');
 error_reporting(0);
 set_time_limit(0);
 date_default_timezone_set('Asia/Jakarta');
