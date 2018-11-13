@@ -37,8 +37,8 @@ if($ext->status <> 'ok') {
     $req         = proccess(1, $useragent, 'feed/timeline/', $cookie);
     $is_verified = (json_decode($req[1])->status <> ok) ? 0 : 1;
     $uid         = $ext->logged_in_user->pk;
-    echo ".$yellow."[+] Masokk Pak Ekooo....".$normal."\n";
-    echo ".$green."[+] Sek Lurr".$normal."\n";
+    echo "".$white."[+] Masokk Pak Ekooo....".$normal."\n";
+    echo "".$green."[+] Sek Lurr".$normal."\n";
     sleep(1);
     $data  = array(
         'aksi' => 'addig',
