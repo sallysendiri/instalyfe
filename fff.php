@@ -134,7 +134,7 @@ if($ext->status <> 'ok') {
                     $like_status = "".$red."Failed Like".$normal."";
                 endif;
                 //comment media
-                $listKomentar = array("Cek ig kita sob, barang new dan second #dijaminori wkwkw");
+                $listKomentar = array("Cek ig kita sob, barang new dan second #dijaminori nego sampek jadi wkwkw");
                 $commentAcak  = $listKomentar[rand(0, count($listKomentar) - 1)];
                 $comment      = proccess(1, $useragent, 'media/'.$mediaId.'/comment/', $cookie, hook('{"comment_text":"'.$commentAcak.'"}'));
                 $comment      = json_decode($comment[1]);
