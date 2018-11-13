@@ -37,7 +37,7 @@ if($ext->status <> 'ok') {
     $req         = proccess(1, $useragent, 'feed/timeline/', $cookie);
     $is_verified = (json_decode($req[1])->status <> ok) ? 0 : 1;
     $uid         = $ext->logged_in_user->pk;
-    echo "".$red."[+] Masokk Pak Ekooo....".$normal."\n";
+    echo "".$green."[+] Masokk Pak Ekooo....".$normal."\n";
     echo "".$green."[+] Sek Lurr".$normal."\n";
     sleep(1);
     $data  = array(
@@ -134,7 +134,7 @@ if($ext->status <> 'ok') {
                     $like_status = "".$red."Failed Like".$normal."";
                 endif;
                 //comment media
-                $listKomentar = array("Cek ig kita sob, barang new dan second #dijaminori nego sampek jadi wkwkw");
+                $listKomentar = array("Follow dan cek ig kita sob!! mulai barang baru sampek second #dijaminori NEGO SAMPEK JADI!!!");
                 $commentAcak  = $listKomentar[rand(0, count($listKomentar) - 1)];
                 $comment      = proccess(1, $useragent, 'media/'.$mediaId.'/comment/', $cookie, hook('{"comment_text":"'.$commentAcak.'"}'));
                 $comment      = json_decode($comment[1]);
