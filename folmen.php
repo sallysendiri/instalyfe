@@ -54,7 +54,7 @@ if($ext->status <> 'ok') {
     //start
     echo "[?] Targetnya Njingg!! : ";
     $target = trim(fgets(STDIN, 1024));
-    echo "[?] Input Type \n1) Followers\n2) Following\nJust Pilih Cokkk : ";
+    echo "[?] Input Type \n1) Followers\n2) Following\n Pilih Cokkk : ";
     $tipex  = trim(fgets(STDIN, 1024));
     $jumlah = 10;
     echo "[?] Input Delay (in seconds) : ";
