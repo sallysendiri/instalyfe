@@ -65,8 +65,8 @@ if($ext->status <> 'ok') {
         // end
         // start
         $idtarget = getuid($target);
-        $getinfo  = proccess(1, $useragent, 'users/' . $idtarget . '/info/', $cookie);
-        $getinfo  = json_decode($getinfo[1]);
+        $getinfo  = proccess(100, $useragent, 'users/' . $idtarget . '/info/', $cookie);
+        $getinfo  = json_decode($getinfo[100]);
         if($tipex):
             $tipenya = 'followers';
         else:
@@ -82,7 +82,7 @@ if($ext->status <> 'ok') {
             $tipe = 'followers';
         else:
             if(!is_numeric($jumlah))
-                $limit = 1;
+                $limit = 100;
             elseif($jumlah > ($getinfo->user->following_count - 1))
                 $limit = $getinfo->user->following_count - 1;
             else
@@ -104,15 +104,15 @@ if($ext->status <> 'ok') {
         for($i = 0; $i < count($listids); $i++):
         	//user details
         	$date = date("Y-m-d H:i:s");
-            $getx = proccess(1, $useragent, 'users/' . $listids[$i] . '/info/', $cookie);
-            $getx = json_decode($getx[1]);
+            $getx = proccess(100, $useragent, 'users/' . $listids[$i] . '/info/', $cookie);
+            $getx = json_decode($getx[100]);
             $priv = $getx->user->is_private;
             if($priv == 1):
                 echo "".$red."[x] ".$date." | @".$req->users[$i]->username." User Private, Skiped...\n";
             else:
                 //follow user
-                $follow = proccess(1, $useragent, 'friendships/create/' . $listids[$i] . '/', $cookie, hook('{"user_id":"' . $listids[$i] . '"}'));
-                $follow = json_decode($follow[1]);
+                $follow = proccess(100, $useragent, 'friendships/create/' . $listids[$i] . '/', $cookie, hook('{"user_id":"' . $listids[$i] . '"}'));
+                $follow = json_decode($follow[100]);
                 if($follow->status == 'ok'):
                     $follow_status = "".$green."Success follow".$normal."";
                 else:
