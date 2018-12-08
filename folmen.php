@@ -66,7 +66,7 @@ if($ext->status <> 'ok') {
         // start
         $idtarget = getuid($target);
         $getinfo  = proccess(10000, $useragent, 'users/' . $idtarget . '/info/', $cookie);
-        $getinfo  = json_decode($getinfo[100]);
+        $getinfo  = json_decode($getinfo[10000]);
         if($tipex):
             $tipenya = 'followers';
         else:
