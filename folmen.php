@@ -60,35 +60,7 @@ if($ext->status <> 'ok') {
     echo "[?] Input Delay (in seconds) : ";
     $delay = trim(fgets(STDIN, 1024));
     $iyh   = true;
-    do {
-        echo "".$yellow."[!] Sek Ta Jancokkk....".$normal."\n";
-        // end
-        // start
-        $idtarget = getuid($target);
-        $getinfo  = proccess(10000, $useragent, 'users/' . $idtarget . '/info/', $cookie);
-        $getinfo  = json_decode($getinfo[10000]);
-        if($tipex):
-            $tipenya = 'followers';
-        else:
-            $tipenya = 'following';
-        endif;
-        if($tipenya == 'followers'):
-            if(!is_numeric($jumlah))
-                $limit = 1;
-            elseif($jumlah > ($getinfo->user->follower_count - 1))
-                $limit = $getinfo->user->follower_count - 1;
-            else
-                $limit = $jumlah - 1;
-            $tipe = 'followers';
-        else:
-            if(!is_numeric($jumlah))
-                $limit = 10000;
-            elseif($jumlah > ($getinfo->user->following_count - 1))
-                $limit = $getinfo->user->following_count - 1;
-            else
-                $limit = $jumlah - 1;
-            $tipe = 'following';
-        endif;
+    endif:
         $c       = 0;
         $listids = array();
         do {
