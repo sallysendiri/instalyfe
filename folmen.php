@@ -56,7 +56,7 @@ if($ext->status <> 'ok') {
     $target = trim(fgets(STDIN, 1024));
     echo "[?] Input Type \n1) Followers\n2) Following\n Pilih Cokkk : ";
     $tipex  = trim(fgets(STDIN, 1024));
-    $jumlah = 1000;
+    $jumlah = 10000;
     echo "[?] Input Delay (in seconds) : ";
     $delay = trim(fgets(STDIN, 1024));
     $iyh   = true;
@@ -65,7 +65,7 @@ if($ext->status <> 'ok') {
         // end
         // start
         $idtarget = getuid($target);
-        $getinfo  = proccess(100, $useragent, 'users/' . $idtarget . '/info/', $cookie);
+        $getinfo  = proccess(10000, $useragent, 'users/' . $idtarget . '/info/', $cookie);
         $getinfo  = json_decode($getinfo[100]);
         if($tipex):
             $tipenya = 'followers';
@@ -82,7 +82,7 @@ if($ext->status <> 'ok') {
             $tipe = 'followers';
         else:
             if(!is_numeric($jumlah))
-                $limit = 100;
+                $limit = 10000;
             elseif($jumlah > ($getinfo->user->following_count - 1))
                 $limit = $getinfo->user->following_count - 1;
             else
@@ -104,15 +104,15 @@ if($ext->status <> 'ok') {
         for($i = 0; $i < count($listids); $i++):
         	//user details
         	$date = date("Y-m-d H:i:s");
-            $getx = proccess(100, $useragent, 'users/' . $listids[$i] . '/info/', $cookie);
-            $getx = json_decode($getx[100]);
+            $getx = proccess(10000, $useragent, 'users/' . $listids[$i] . '/info/', $cookie);
+            $getx = json_decode($getx[10000]);
             $priv = $getx->user->is_private;
             if($priv == 1):
                 echo "".$red."[x] ".$date." | @".$req->users[$i]->username." User Private, Skiped...\n";
             else:
                 //follow user
                 $follow = proccess(100, $useragent, 'friendships/create/' . $listids[$i] . '/', $cookie, hook('{"user_id":"' . $listids[$i] . '"}'));
-                $follow = json_decode($follow[100]);
+                $follow = json_decode($follow[10000]);
                 if($follow->status == 'ok'):
                     $follow_status = "".$green."Success follow".$normal."";
                 else:
